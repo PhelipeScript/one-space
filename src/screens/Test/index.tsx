@@ -1,18 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Container, Title } from './styles'
 
 export function Test() {
   return (
-    <View style={styles.container}>
-      <Text>Test works</Text>
-    </View>
+    <Container>
+      <Title>Test works</Title>
+    </Container>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
