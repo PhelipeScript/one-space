@@ -13,7 +13,7 @@ export const Title = styled.Text`
   flex: 1;
   ${(props) => css`
     font-family: ${props.theme.FONT_FAMILY.BOLD};
-    font-size: ${props.theme.FONT_SIZE.LG};
+    font-size: ${props.theme.FONT_SIZE.LG}px;
     color: ${props.theme.COLORS.GRAY_100};
   `}
 `
