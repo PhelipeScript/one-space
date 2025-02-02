@@ -7,12 +7,12 @@ import {
   Title,
 } from './styles'
 
-interface HeaderProps {
+interface ToolbarProps {
   title?: string
   showBackButton?: boolean
 }
 
-export function Header({ title, showBackButton = false }: HeaderProps) {
+export function Toolbar({ title, showBackButton = false }: ToolbarProps) {
   return (
     <Container>
       {showBackButton && (

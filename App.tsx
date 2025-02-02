@@ -4,7 +4,7 @@ import {
   Roboto_700Bold,
   useFonts,
 } from '@expo-google-fonts/roboto'
-import { Test } from '@screens/Test'
+import { Home } from '@screens/Home'
 import theme from '@theme/index'
 import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components/native'
@@ -22,7 +22,7 @@ export default function App() {
         translucent
       />
 
-      {fontsLoaded ? <Test /> : <Loading />}
+      {fontsLoaded ? <Home /> : <Loading />}
     </ThemeProvider>
   )
 }
