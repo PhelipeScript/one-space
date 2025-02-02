@@ -6,6 +6,7 @@ import {
 } from '@expo-google-fonts/roboto'
 import { Test } from '@screens/Test'
 import theme from '@theme/index'
+import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components/native'
 
 export default function App() {
@@ -15,6 +16,12 @@ export default function App() {
   })
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+
       {fontsLoaded ? <Test /> : <Loading />}
     </ThemeProvider>
   )
