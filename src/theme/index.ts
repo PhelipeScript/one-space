@@ -9,6 +9,8 @@ export default {
     GRAY_500: '#29292E',
     GRAY_600: '#202024',
     GRAY_700: '#121214',
+
+    ORANGE: '#FF8800',
   },
   FONT_FAMILY: {
     REGULAR: 'Roboto_400Regular',
