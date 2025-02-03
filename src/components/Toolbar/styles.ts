@@ -12,7 +12,7 @@ export const Title = styled.Text`
   text-align: center;
   flex: 1;
   ${(props) => css`
-    font-family: ${props.theme.FONT_FAMILY.BOLD};
+    font-family: ${props.theme.FONT_FAMILY.ROBOTO_BOLD};
     font-size: ${props.theme.FONT_SIZE.LG}px;
     color: ${props.theme.COLORS.GRAY_100};
   `}

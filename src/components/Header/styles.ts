@@ -12,7 +12,7 @@ export const TitleContainer = styled.View``
 
 export const Title = styled.Text`
   ${(props) => css`
-    font-family: ${props.theme.FONT_FAMILY.BOLD};
+    font-family: ${props.theme.FONT_FAMILY.ROBOTO_BOLD};
     font-size: ${props.theme.FONT_SIZE.XL}px;
     line-height: ${props.theme.FONT_SIZE.XL * 1.6}px;
     color: ${props.theme.COLORS.GRAY_100};
@@ -21,7 +21,7 @@ export const Title = styled.Text`
 
 export const Subtitle = styled.Text`
   ${(props) => css`
-    font-family: ${props.theme.FONT_FAMILY.REGULAR};
+    font-family: ${props.theme.FONT_FAMILY.ROBOTO_REGULAR};
     font-size: ${props.theme.FONT_SIZE.SM}px;
     color: ${props.theme.COLORS.GRAY_200};
   `}

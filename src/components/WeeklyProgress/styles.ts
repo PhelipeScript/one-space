@@ -22,7 +22,7 @@ export const DayCard = styled.TouchableOpacity<DayCardProps>`
 
 export const DayOfTheMonth = styled.Text`
   ${(props) => css`
-    font-family: ${props.theme.FONT_FAMILY.BOLD};
+    font-family: ${props.theme.FONT_FAMILY.ROBOTO_BOLD};
     font-size: ${props.theme.FONT_SIZE.LG}px;
     line-height: ${props.theme.FONT_SIZE.LG * 1.6}px;
     color: ${props.theme.COLORS.GRAY_100};
@@ -31,7 +31,7 @@ export const DayOfTheMonth = styled.Text`
 
 export const DayOfTheWeek = styled.Text`
   ${(props) => css`
-    font-family: ${props.theme.FONT_FAMILY.REGULAR};
+    font-family: ${props.theme.FONT_FAMILY.ROBOTO_REGULAR};
     font-size: ${props.theme.FONT_SIZE.LG}px;
     line-height: ${props.theme.FONT_SIZE.LG * 1.6}px;
     color: ${props.theme.COLORS.GRAY_200};
