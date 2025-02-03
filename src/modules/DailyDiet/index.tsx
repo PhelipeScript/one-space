@@ -1,5 +1,6 @@
 import { Header } from './components/Header'
 import { Highlight } from './components/Highlight'
+import { Meals } from './components/Meals'
 import { Container } from './styles'
 
 export function DailyDiet() {
@@ -7,6 +8,7 @@ export function DailyDiet() {
     <Container>
       <Header />
       <Highlight showButtonType="statistics" />
+      <Meals />
     </Container>
   )
 }
