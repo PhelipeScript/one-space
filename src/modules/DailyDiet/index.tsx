@@ -1,11 +1,10 @@
-import { Text } from 'react-native'
-
+import { Header } from './components/Header'
 import { Container } from './styles'
 
 export function DailyDiet() {
   return (
     <Container>
-      <Text style={{ color: '#fff' }}>DailyDiet works</Text>
+      <Header />
     </Container>
   )
 }
