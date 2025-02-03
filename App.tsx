@@ -1,5 +1,9 @@
 import { Loading } from '@components/Loading'
 import {
+  NunitoSans_400Regular,
+  NunitoSans_700Bold,
+} from '@expo-google-fonts/nunito-sans'
+import {
   Roboto_400Regular,
   Roboto_700Bold,
   useFonts,
@@ -12,6 +16,8 @@ import { ThemeProvider } from 'styled-components/native'
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
+    NunitoSans_400Regular,
+    NunitoSans_700Bold,
     Roboto_700Bold,
   })
   return (
