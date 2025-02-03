@@ -2,6 +2,7 @@ import { Plus } from 'phosphor-react-native'
 import styled, { css } from 'styled-components/native'
 
 export const Container = styled.View`
+  flex: 1;
   width: 100%;
 `
 
@@ -12,8 +13,6 @@ export const Title = styled.Text`
     line-height: ${props.theme.FONT_SIZE.MD * 1.3}px;
     color: ${props.theme.COLORS.GRAY_100};
   `}
-
-  margin-bottom: 8px;
 `
 
 export const NewMealButton = styled.TouchableOpacity`
@@ -22,8 +21,9 @@ export const NewMealButton = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 24px;
+  padding: 16px;
   border-radius: 6px;
+  margin-top: 8px;
 `
 
 export const Text = styled.Text`
@@ -39,3 +39,14 @@ export const AddIcon = styled(Plus).attrs((props) => ({
   size: 18,
   color: props.theme.COLORS.GRAY_100,
 }))``
+
+export const MealSectionHeader = styled.Text`
+  ${(props) => css`
+    font-family: ${props.theme.FONT_FAMILY.NUNITO_SANS_BOLD};
+    font-size: ${props.theme.FONT_SIZE.LG}px;
+    line-height: ${props.theme.FONT_SIZE.LG * 1.3}px;
+    color: ${props.theme.COLORS.GRAY_100};
+  `}
+
+  margin-top: 32px;
+`
