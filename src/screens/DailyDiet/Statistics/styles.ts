@@ -8,6 +8,7 @@ export const Container = styled.View`
 export const Content = styled.View`
   flex: 1;
   align-items: center;
+  gap: 12px;
   padding: 24px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -21,4 +22,10 @@ export const Title = styled.Text`
     line-height: ${props.theme.FONT_SIZE.SM * 1.3}px;
     color: ${props.theme.COLORS.GRAY_100};
   `}
+`
+
+export const StatisticsCardContainer = styled.View`
+  flex-direction: row;
+  gap: 12px;
+  padding: 0 6px;
 `
