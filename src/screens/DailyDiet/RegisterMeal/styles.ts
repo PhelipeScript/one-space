@@ -26,6 +26,8 @@ export const Content = styled.View`
   border-top-right-radius: 20px;
 `
 
+export const InputContainer = styled.View``
+
 export const Label = styled.Text`
   ${(props) => css`
     font-family: ${props.theme.FONT_FAMILY.NUNITO_SANS_BOLD};
@@ -43,9 +45,37 @@ export const Input = styled(TextInput).attrs((props) => ({
   underlineColorAndroid: 'transparent',
   autoCorrect: false,
 }))`
+  ${(props) => css`
+    font-family: ${props.theme.FONT_FAMILY.NUNITO_SANS_BOLD};
+    font-size: ${props.theme.FONT_SIZE.MD}px;
+    line-height: ${props.theme.FONT_SIZE.MD * 1.3}px;
+    border: 1px solid ${props.theme.COLORS.GRAY_400};
+  `}
+  width: 100%;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 6px;
+`
+
+export const MealDateTimeContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const MealDateTimeButton = styled.TouchableOpacity`
   width: 100%;
   border: 1px solid ${(props) => props.theme.COLORS.GRAY_400};
   border-radius: 6px;
   padding: 12px;
   margin-top: 6px;
+`
+
+export const Text = styled.Text`
+  ${(props) => css`
+    font-family: ${props.theme.FONT_FAMILY.NUNITO_SANS_BOLD};
+    font-size: ${props.theme.FONT_SIZE.MD}px;
+    line-height: ${props.theme.FONT_SIZE.MD * 1.3}px;
+    color: ${props.theme.COLORS.GRAY_100};
+  `}
 `
