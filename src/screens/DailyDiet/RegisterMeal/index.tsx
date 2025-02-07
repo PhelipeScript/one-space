@@ -4,11 +4,15 @@ import { useState } from 'react'
 import {
   Container,
   Content,
+  Form,
   Input,
   InputContainer,
+  IsOnDietButton,
+  IsOnDietIcon,
   Label,
   MealDateTimeButton,
   MealDateTimeContainer,
+  RegisterMealButton,
   Text,
   Title,
 } from './styles'
@@ -16,6 +20,7 @@ import {
 export function RegisterMeal() {
   const [date, setDate] = useState<Date>(new Date())
   const [time, setTime] = useState<Date>(new Date())
+  const [isOnDiet, setIsOnDiet] = useState<boolean>(true)
 
   const showDatePicker = () => {
     DateTimePickerAndroid.open({
@@ -48,37 +53,64 @@ export function RegisterMeal() {
       <Title>Nova refeição</Title>
 
       <Content>
-        <InputContainer>
-          <Label>Nome</Label>
-          <Input placeholder="Digite o nome da refeição..." />
-        </InputContainer>
-
-        <InputContainer>
-          <Label>Descrição</Label>
-          <Input
-            multiline
-            numberOfLines={6}
-            textAlignVertical="top"
-            placeholder="Digite informações sobre a refeição..."
-            style={{ height: 125 }}
-          />
-        </InputContainer>
-
-        <MealDateTimeContainer>
-          <InputContainer style={{ width: '48%' }}>
-            <Label>Data</Label>
-            <MealDateTimeButton onPress={showDatePicker}>
-              <Text>{date.toLocaleDateString()}</Text>
-            </MealDateTimeButton>
+        <Form>
+          <InputContainer>
+            <Label>Nome</Label>
+            <Input placeholder="Digite o nome da refeição..." />
           </InputContainer>
 
-          <InputContainer style={{ width: '48%' }}>
-            <Label>Hora</Label>
-            <MealDateTimeButton onPress={showTimePicker}>
-              <Text>{time.toLocaleTimeString()}</Text>
-            </MealDateTimeButton>
+          <InputContainer>
+            <Label>Descrição</Label>
+            <Input
+              multiline
+              numberOfLines={6}
+              textAlignVertical="top"
+              placeholder="Digite informações sobre a refeição..."
+              style={{ height: 125 }}
+            />
           </InputContainer>
-        </MealDateTimeContainer>
+
+          <MealDateTimeContainer>
+            <InputContainer style={{ width: '48%' }}>
+              <Label>Data</Label>
+              <MealDateTimeButton onPress={showDatePicker}>
+                <Text>{date.toLocaleDateString()}</Text>
+              </MealDateTimeButton>
+            </InputContainer>
+
+            <InputContainer style={{ width: '48%' }}>
+              <Label>Hora</Label>
+              <MealDateTimeButton onPress={showTimePicker}>
+                <Text>{time.toLocaleTimeString()}</Text>
+              </MealDateTimeButton>
+            </InputContainer>
+          </MealDateTimeContainer>
+
+          <Label>Está dentro da dieta?</Label>
+          <MealDateTimeContainer>
+            <IsOnDietButton
+              isOnDiet={isOnDiet}
+              selected={isOnDiet}
+              onPress={() => setIsOnDiet(true)}
+            >
+              <IsOnDietIcon isOnDiet size={8} weight="fill" />
+              <Text isOnDiet={isOnDiet}>Sim</Text>
+            </IsOnDietButton>
+
+            <IsOnDietButton
+              isOnDiet={isOnDiet}
+              selected={!isOnDiet}
+              onPress={() => setIsOnDiet(false)}
+            >
+              <IsOnDietIcon isOnDiet={false} size={8} weight="fill" />
+              <Text isOnDiet={!isOnDiet}>Não</Text>
+            </IsOnDietButton>
+          </MealDateTimeContainer>
+        </Form>
+
+        <RegisterMealButton>
+          <Text>Cadastrar refeição</Text>
+        </RegisterMealButton>
       </Content>
     </Container>
   )
