@@ -11,7 +11,7 @@ import {
 } from './styles'
 
 export interface FeedbackProps {
-  isOnDiet: boolean
+  isOnDiet?: boolean
 }
 
 export function Feedback({ isOnDiet }: FeedbackProps) {

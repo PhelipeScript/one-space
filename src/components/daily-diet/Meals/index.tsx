@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import { SectionList } from 'react-native'
 
 import { MealCard } from '../MealCard'
@@ -11,6 +12,8 @@ import {
 } from './styles'
 
 export function Meals() {
+  const navigation = useNavigation()
+
   const meals = [
     {
       date: '2025-02-03',
@@ -84,10 +87,14 @@ export function Meals() {
     },
   ]
 
+  function handleRegisterNewMeal() {
+    navigation.navigate('daily-diet/register-meal')
+  }
+
   return (
     <Container>
       <Title>Refeições</Title>
-      <NewMealButton>
+      <NewMealButton onPress={handleRegisterNewMeal}>
         <AddIcon />
         <Text>Nova refeição</Text>
       </NewMealButton>

@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native'
+
 import {
   BackIcon,
   ButtonIcon,
@@ -12,9 +14,26 @@ export interface HighlightProps {
 }
 
 export function Highlight({ showButtonType }: HighlightProps) {
+  const navigation = useNavigation()
+
+  function handleGoToStatistics() {
+    navigation.navigate('daily-diet/statistics')
+  }
+
+  function handleGoToDailyDiet() {
+    navigation.navigate('daily-diet')
+  }
+
   return (
     <Container>
-      <ButtonIcon showButtonType={showButtonType}>
+      <ButtonIcon
+        showButtonType={showButtonType}
+        onPress={
+          showButtonType === 'statistics'
+            ? handleGoToStatistics
+            : handleGoToDailyDiet
+        }
+      >
         {showButtonType === 'statistics' ? <StatisticsIcon /> : <BackIcon />}
       </ButtonIcon>
       <Percentage>50%</Percentage>

@@ -1,10 +1,14 @@
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker'
+import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 
 import {
+  BackButton,
+  BackIcon,
   Container,
   Content,
   Form,
+  Header,
   Input,
   InputContainer,
   IsOnDietButton,
@@ -18,6 +22,7 @@ import {
 } from './styles'
 
 export function RegisterMeal() {
+  const navigation = useNavigation()
   const [date, setDate] = useState<Date>(new Date())
   const [time, setTime] = useState<Date>(new Date())
   const [isOnDiet, setIsOnDiet] = useState<boolean>(true)
@@ -48,9 +53,18 @@ export function RegisterMeal() {
     })
   }
 
+  function handleGoToDailyDiet() {
+    navigation.navigate('daily-diet')
+  }
+
   return (
     <Container>
-      <Title>Nova refeição</Title>
+      <Header>
+        <BackButton onPress={handleGoToDailyDiet}>
+          <BackIcon />
+        </BackButton>
+        <Title>Nova refeição</Title>
+      </Header>
 
       <Content>
         <Form>

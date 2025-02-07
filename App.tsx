@@ -8,7 +8,7 @@ import {
   Roboto_700Bold,
   useFonts,
 } from '@expo-google-fonts/roboto'
-import { Home } from '@screens/Home'
+import { Routes } from '@routes/index'
 import theme from '@theme/index'
 import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components/native'
@@ -28,7 +28,7 @@ export default function App() {
         translucent
       />
 
-      {fontsLoaded ? <Home /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   )
 }

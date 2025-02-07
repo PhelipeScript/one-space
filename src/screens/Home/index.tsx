@@ -1,22 +1,33 @@
 import { Header } from '@components/Header'
-import { Toolbar } from '@components/Toolbar'
 import { WeeklyProgress } from '@components/WeeklyProgress'
-import { DailyDiet } from '@screens/DailyDiet'
-import { Feedback } from '@screens/DailyDiet/Feedback'
-import { RegisterMeal } from '@screens/DailyDiet/RegisterMeal'
-import { Statistics } from '@screens/DailyDiet/Statistics'
+import { useNavigation } from '@react-navigation/native'
+import { Text, TouchableOpacity } from 'react-native'
 
 import { Container } from './styles'
 
 export function Home() {
+  const navigation = useNavigation()
+
+  function handleDailyDiet() {
+    navigation.navigate('daily-diet')
+  }
+
   return (
     <Container>
-      <Toolbar showBackButton title="Daily Diet" />
+      <Header />
+      <WeeklyProgress />
 
-      {/* <Header />
-      <WeeklyProgress /> */}
-
-      <Feedback isOnDiet />
+      <TouchableOpacity
+        onPress={handleDailyDiet}
+        style={{
+          padding: 16,
+          width: '100%',
+          alignItems: 'center',
+          boxShadow: '0px 0px 0px 1px #fff',
+        }}
+      >
+        <Text style={{ color: '#fff' }}>Daily Diet</Text>
+      </TouchableOpacity>
     </Container>
   )
 }

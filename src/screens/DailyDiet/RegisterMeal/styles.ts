@@ -1,4 +1,4 @@
-import { Circle } from 'phosphor-react-native'
+import { CaretLeft, Circle } from 'phosphor-react-native'
 import { TextInput } from 'react-native'
 import styled, { css } from 'styled-components/native'
 
@@ -8,15 +8,30 @@ export const Container = styled.View`
   background-color: ${(props) => props.theme.COLORS.GRAY_700};
 `
 
+export const Header = styled.View`
+  flex-direction: row;
+  align-items: center;
+`
+
 export const Title = styled.Text`
   ${(props) => css`
     font-family: ${props.theme.FONT_FAMILY.NUNITO_SANS_BOLD};
     font-size: ${props.theme.FONT_SIZE.LG}px;
     line-height: ${props.theme.FONT_SIZE.LG * 1.3}px;
     color: ${props.theme.COLORS.GRAY_100};
-    margin: 24px 0;
   `}
+
+  flex: 1;
+  text-align: center;
+  margin: 24px 0;
 `
+
+export const BackButton = styled.TouchableOpacity``
+
+export const BackIcon = styled(CaretLeft).attrs((props) => ({
+  size: 32,
+  color: props.theme.COLORS.GRAY_100,
+}))``
 
 export const Content = styled.View`
   flex: 1;
