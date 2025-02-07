@@ -12,7 +12,7 @@ export const Container = styled.View`
   justify-content: center;
   border-radius: 8px;
   padding: 20px 16px;
-  margin: 32px 0;
+  margin: 12px 0;
   position: relative;
 `
 

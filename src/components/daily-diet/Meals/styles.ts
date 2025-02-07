@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components/native'
 export const Container = styled.View`
   flex: 1;
   width: 100%;
+  margin-top: 24px;
 `
 
 export const Title = styled.Text`
