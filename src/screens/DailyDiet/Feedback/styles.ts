@@ -41,6 +41,7 @@ export const TextHighlight = styled.Text`
 `
 
 export const FeedbackImage = styled.Image`
+  filter: invert(1);
   margin: 24px 0px;
   width: 224px;
   height: 288px;
