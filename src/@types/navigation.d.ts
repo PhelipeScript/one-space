@@ -8,6 +8,13 @@ export declare global {
       'daily-diet/feedback': {
         isOnDiet: boolean
       }
+      'daily-diet/meal-details': {
+        name: string
+        description: string
+        date: string
+        time: string
+        isOnDiet: boolean
+      }
     }
   }
 }

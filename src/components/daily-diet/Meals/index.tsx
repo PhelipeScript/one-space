@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
+import { MealDetailsProps } from '@screens/DailyDiet/MealDetails'
 import { SectionList } from 'react-native'
 
 import { MealCard } from '../MealCard'
@@ -16,71 +17,83 @@ export function Meals() {
 
   const meals = [
     {
-      date: '2025-02-03',
+      date: new Date('2025-02-03T00:00:00'),
       data: [
         {
-          mealTime: '08:00',
-          mealName: 'Café da Manhã - Omelete e Suco de Laranja',
+          name: 'Café da Manhã',
+          description: 'Omelete e Suco de Laranja',
+          time: new Date('2025-02-03T08:00:00'),
           isOnDiet: true,
         },
         {
-          mealTime: '10:30',
-          mealName: 'Lanche da Manhã - Biscoito de Polvilho',
+          name: 'Lanche da Manhã',
+          description: 'Biscoito de Polvilho',
+          time: new Date('2025-02-03T10:30:00'),
           isOnDiet: false,
         },
         {
-          mealTime: '12:30',
-          mealName: 'Almoço - Arroz, Feijão e Frango Grelhado',
+          name: 'Almoço',
+          description: 'Arroz, Feijão e Frango Grelhado',
+          time: new Date('2025-02-03T12:30:00'),
           isOnDiet: true,
         },
         {
-          mealTime: '15:45',
-          mealName: 'Lanche da Tarde - Bolo de Chocolate',
+          name: 'Lanche da Tarde',
+          description: 'Bolo de Chocolate',
+          time: new Date('2025-02-03T15:45:00'),
           isOnDiet: false,
         },
         {
-          mealTime: '19:00',
-          mealName: 'Jantar - Salada e Peito de Frango',
+          name: 'Jantar',
+          description: 'Salada e Peito de Frango',
+          time: new Date('2025-02-03T19:00:00'),
           isOnDiet: true,
         },
         {
-          mealTime: '22:00',
-          mealName: 'Ceia - Iogurte com Granola',
+          name: 'Ceia',
+          description: 'Iogurte com Granola',
+          time: new Date('2025-02-03T22:00:00'),
           isOnDiet: true,
         },
       ],
     },
     {
-      date: '2025-02-04',
+      date: new Date('2025-02-04T00:00:00'),
       data: [
         {
-          mealTime: '08:00',
-          mealName: 'Café da Manhã - Omelete e Suco de Laranja',
+          name: 'Café da Manhã',
+          description: 'Omelete e Suco de Laranja',
+          time: new Date('2025-02-04T08:00:00'),
           isOnDiet: true,
         },
         {
-          mealTime: '10:30',
-          mealName: 'Lanche da Manhã - Biscoito de Polvilho',
+          name: 'Lanche da Manhã',
+          description: 'Biscoito de Polvilho',
+          time: new Date('2025-02-04T10:30:00'),
           isOnDiet: false,
         },
         {
-          mealTime: '12:30',
-          mealName: 'Almoço - Arroz, Feijão e Frango Grelhado',
+          name: 'Almoço',
+          description: 'Arroz, Feijão e Frango Grelhado',
+          time: new Date('2025-02-04T12:30:00'),
           isOnDiet: true,
         },
         {
-          mealTime: '15:45',
-          mealName: 'Lanche da Tarde - Bolo de Chocolate',
+          name: 'Lanche da Tarde',
+          description: 'Bolo de Chocolate',
+          time: new Date('2025-02-04T15:45:00'),
           isOnDiet: false,
         },
         {
-          mealTime: '19:00',
-          mealName: 'Jantar - Salada e Peito de Frango',
+          name: 'Jantar',
+          description: 'Salada e Peito de Frango',
+          time: new Date('2025-02-04T19:00:00'),
           isOnDiet: true,
         },
         {
-          mealTime: '22:00',
-          mealName: 'Ceia - Iogurte com Granola',
+          name: 'Ceia',
+          description: 'Iogurte com Granola',
+          time: new Date('2025-02-04T22:00:00'),
           isOnDiet: true,
         },
       ],
@@ -89,6 +102,10 @@ export function Meals() {
 
   function handleRegisterNewMeal() {
     navigation.navigate('daily-diet/register-meal')
+  }
+
+  function handleMealDetails(meal: MealDetailsProps) {
+    navigation.navigate('daily-diet/meal-details', meal)
   }
 
   return (
@@ -101,16 +118,23 @@ export function Meals() {
 
       <SectionList
         sections={meals}
-        keyExtractor={(item, index) => item.mealName + index}
-        renderItem={({ item }) => (
+        keyExtractor={(item, index) => item.name + index}
+        renderItem={({ item, section }) => (
           <MealCard
-            mealTime={item.mealTime}
-            mealName={item.mealName}
+            mealTime={item.time.toLocaleTimeString()}
+            mealName={item.name}
             isOnDiet={item.isOnDiet}
+            onPress={() =>
+              handleMealDetails({
+                ...item,
+                time: item.time.toLocaleTimeString(),
+                date: section.date.toLocaleDateString(),
+              })
+            }
           />
         )}
         renderSectionHeader={({ section: { date } }) => (
-          <MealSectionHeader>{date}</MealSectionHeader>
+          <MealSectionHeader>{date.toLocaleDateString()}</MealSectionHeader>
         )}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={[{ paddingBottom: 100 }]}
