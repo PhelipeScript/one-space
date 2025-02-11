@@ -41,6 +41,7 @@ export const Title = styled.Text`
   `}
 
   flex: 1;
+  padding-right: 32px;
   text-align: center;
 `
 

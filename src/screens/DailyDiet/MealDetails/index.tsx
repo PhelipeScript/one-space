@@ -1,4 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native'
+import { ConfirmModal } from '@utils/modal/ConfirmModal'
+import { useState } from 'react'
 
 import {
   BackButton,
@@ -27,11 +29,16 @@ export interface MealDetailsProps {
   isOnDiet: boolean
 }
 
+function handleDeleteMeal() {
+  // Implement delete meal
+}
+
 export function MealDetails() {
   const navigation = useNavigation()
   const route = useRoute()
   const { name, description, date, time, isOnDiet } =
     route.params as MealDetailsProps
+  const [confirmModalVisible, setConfirmModalVisible] = useState(false)
 
   function handleGoDailyDiet() {
     navigation.navigate('daily-diet')
@@ -66,12 +73,23 @@ export function MealDetails() {
             <PencilIcon />
             <TextHighlight>Editar refeição</TextHighlight>
           </Button>
-          <Button type="delete">
+          <Button type="delete" onPress={() => setConfirmModalVisible(true)}>
             <TrashIcon />
             <TextHighlight>Excluir refeição</TextHighlight>
           </Button>
         </ButtonsContainer>
       </Content>
+
+      <ConfirmModal
+        visible={confirmModalVisible}
+        message="Deseja realmente excluir o registro da refeição?"
+        cancelText="Cancelar"
+        confirmText="Sim, Excluir"
+        onConfirm={handleDeleteMeal}
+        onCancel={() => {
+          setConfirmModalVisible(false)
+        }}
+      />
     </Container>
   )
 }
