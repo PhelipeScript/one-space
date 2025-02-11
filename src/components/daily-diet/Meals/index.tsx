@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import { MealDetailsProps } from '@screens/DailyDiet/MealDetails'
+import { MealDTOProps } from '@storage/meal/types'
 import { SectionList } from 'react-native'
 
 import { MealCard } from '../MealCard'
@@ -104,7 +104,7 @@ export function Meals() {
     navigation.navigate('daily-diet/register-meal')
   }
 
-  function handleMealDetails(meal: MealDetailsProps) {
+  function handleMealDetails(meal: MealDTOProps) {
     navigation.navigate('daily-diet/meal-details', meal)
   }
 

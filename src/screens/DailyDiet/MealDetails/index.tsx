@@ -1,4 +1,5 @@
 import { useNavigation, useRoute } from '@react-navigation/native'
+import { MealDTOProps } from '@storage/meal/types'
 import { ConfirmModal } from '@utils/modal/ConfirmModal'
 import { useState } from 'react'
 
@@ -21,14 +22,6 @@ import {
   TrashIcon,
 } from './styles'
 
-export interface MealDetailsProps {
-  date: string
-  name: string
-  description: string
-  time: string
-  isOnDiet: boolean
-}
-
 function handleDeleteMeal() {
   // Implement delete meal
 }
@@ -37,7 +30,7 @@ export function MealDetails() {
   const navigation = useNavigation()
   const route = useRoute()
   const { name, description, date, time, isOnDiet } =
-    route.params as MealDetailsProps
+    route.params as MealDTOProps
   const [confirmModalVisible, setConfirmModalVisible] = useState(false)
 
   function handleGoDailyDiet() {
